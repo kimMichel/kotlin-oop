@@ -6,14 +6,23 @@ fun main(args: Array<String>) {
 //    val student = Student("Kim", 24 )
 //    student.greet()
 //    student.study()
-    val openButton: Button = OpenButton()
-    val closeButton:Button = CloseButton()
 
-    openButton.onCLick()
-    closeButton.onCLick()
+//    val openButton: Button = OpenButton()
+//    val closeButton:Button = CloseButton()
+//
+//    openButton.onCLick()
+//    closeButton.onCLick()
+//
+//    println(openButton)
+//    println(closeButton)
 
-    println(openButton)
-    println(closeButton)
+    val shapes = arrayOf(
+        Rectangle("Rectangle 1", 5.0, 3.0),
+        Circle("Circle 1", 2.0)
+    )
+    for (shape in shapes) {
+        println("Area of ${shape.name}: ${shape.getArea()}")
+    }
 }
 
 // Herança
@@ -47,4 +56,23 @@ class CloseButton(): Button {
         println("close button was clicked")
     }
 }
+
+// Abstração
+abstract class Shape(val name: String) {
+    abstract fun getArea(): Double
+}
+
+class Rectangle(name: String, val width: Double, val height: Double): Shape(name) {
+    override fun getArea(): Double {
+        return width * height
+    }
+}
+
+class Circle(name: String, val  radius: Double): Shape(name) {
+    override fun getArea(): Double {
+        return Math.PI * (radius * radius)
+    }
+}
+
+
 
